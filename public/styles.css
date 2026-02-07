@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: #f5f6f8;
+  color: #1e1f24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f5f6f8;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.app__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 2.2rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: #5b5f6b;
+  max-width: 560px;
+}
+
+.app__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #2f5bff;
+  color: white;
+  box-shadow: 0 6px 14px rgba(47, 91, 255, 0.3);
+}
+
+button.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.ghost {
+  background: white;
+  color: #2f5bff;
+  border: 1px solid #d3d7e3;
+}
+
+.app__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+
+.panel {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+  min-height: 400px;
+}
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.panel__header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.pill {
+  background: #f0f2ff;
+  color: #2f5bff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #f1f1f6;
+  border: 1px solid #d6d8e2;
+  font-size: 0.9rem;
+  cursor: grab;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.chip:active {
+  cursor: grabbing;
+  transform: scale(0.97);
+}
+
+.chip.dragging {
+  opacity: 0.6;
+}
+
+.hint {
+  margin-top: 16px;
+  color: #6d7380;
+  font-size: 0.9rem;
+}
+
+.slots {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px dashed #c9ceda;
+  padding: 10px 14px;
+  border-radius: 12px;
+  min-height: 48px;
+  background: #f9fafc;
+}
+
+.slot.filled {
+  border-style: solid;
+  background: #ffffff;
+}
+
+.slot.dragover {
+  border-color: #2f5bff;
+  background: #eef2ff;
+}
+
+.slot__index {
+  font-size: 0.8rem;
+  color: #6d7380;
+  margin-right: 12px;
+}
+
+.slot__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.slot__placeholder {
+  color: #9aa0ad;
+  font-style: italic;
+}
+
+.slot__remove {
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #8f95a3;
+}
+
+.trash {
+  font-size: 1.4rem;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px dashed #d3d7e3;
+  background: #fafbfe;
+  cursor: pointer;
+}
+
+.trash.dragover {
+  border-color: #ff4d4f;
+  background: #fff1f0;
+}
+
+.output {
+  border-top: 1px solid #e4e7ef;
+  padding-top: 20px;
+}
+
+.output__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.status {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #edf0f7;
+  color: #5f6572;
+}
+
+.status.loading {
+  background: #fff3cd;
+  color: #8a6d1d;
+}
+
+.status.error {
+  background: #ffe1e0;
+  color: #b42318;
+}
+
+.output__body {
+  background: #f8f9fc;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+  color: #2a2d37;
+  line-height: 1.5;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1e1f24;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .app__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app__grid {
+    grid-template-columns: 1fr;
+  }
+}

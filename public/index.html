@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyword Composer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <h1>Keyword Composer</h1>
+          <p class="subtitle">
+            Trascina le keyword dalla pool agli slot per definire l'ordine di input.
+          </p>
+        </div>
+        <div class="app__actions">
+          <button id="generateBtn" class="primary">Generate sentence</button>
+          <button id="clearBtn" class="ghost">Clear composition</button>
+        </div>
+      </header>
+
+      <section class="app__grid">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Pool keywords</h2>
+            <span class="pill">Disponibili: <strong id="poolCount">0</strong></span>
+          </div>
+          <div id="pool" class="pool" aria-live="polite"></div>
+          <p class="hint">Suggerimento: trascina una keyword negli slot a destra.</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Composizione (max 10)</h2>
+            <div class="trash" id="trash" aria-label="Rimuovi keyword" title="Trascina qui per rimuovere">
+              🗑
+            </div>
+          </div>
+          <ol id="slots" class="slots" aria-label="Lista di composizione"></ol>
+
+          <div class="output">
+            <div class="output__header">
+              <h3>Output</h3>
+              <span id="outputStatus" class="status">idle</span>
+            </div>
+            <div id="outputBody" class="output__body" role="status" aria-live="polite">
+              Seleziona le keyword e genera una frase.
+            </div>
+          </div>
+
+          <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
